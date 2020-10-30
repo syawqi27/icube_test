@@ -5,6 +5,8 @@ import store from "./stores/store";
 import Main from "./pages/index"
 import Detail from "./pages/detail"
 
+import "semantic-ui-css/semantic.min.css";
+
 function App() {
   return (
     <Provider store={store}>
