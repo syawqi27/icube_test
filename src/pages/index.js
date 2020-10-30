@@ -16,22 +16,24 @@ function MainPage(props) {
     setState(props.data.dataCustomer);
   }, [props]);
   return (
-    <Container fluid>
-      <List>
+    <Container>
+      <List divided relaxed size="massive">
         {state.map((data, index) => {
           return (
-            <List.Header key={index}>
-              <Link
-                to={{
-                  pathname: "/detail",
-                  state: {
-                    data: data
-                  }
-                }}
-              >
-                {data.email}
-              </Link>
-            </List.Header>
+            <List.Item key={index}>
+              <List.Icon>
+                <Link
+                  to={{
+                    pathname: "/detail",
+                    state: {
+                      data: data
+                    }
+                  }}
+                >
+                  {data.email}
+                </Link>
+              </List.Icon>
+            </List.Item>
           );
         })}
       </List>
