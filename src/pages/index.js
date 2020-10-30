@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { List, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import Data from "../datas/costumers";
 
-function MainPage(state) {
+function MainPage(props) {
+  const { setCustomerData } = props;
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    setCustomerData(Data.main);
+  }, [setCustomerData]);
+
+  useEffect(() => {
+    setState(props.data.dataCustomer);
+  }, [props]);
   return (
     <Container fluid>
       <List>
-        {state.data.dataCustomer.map((data, index) => {
+        {state.map((data, index) => {
           return (
             <List.Header key={index}>
               <Link
